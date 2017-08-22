@@ -6,7 +6,9 @@ var App = React.createClass({
 	render () {
 		return (
 			<div>
+				<h2>Example Options:</h2>
 				<ReactSimpleOptionsSelector />
+
 			</div>
 		);
 	}
