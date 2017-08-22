@@ -30,7 +30,6 @@ const Button = styled.input`
 	border:none;
 	border: 1px solid ${props=> props.selected ? props.selectedStyle.selected_border_color:"black"};
 	cursor:pointer;
-	
 	padding: 0.25em 1em;
 	border: 2px solid violetred;
 	border-radius: 3px;
@@ -51,13 +50,13 @@ export default class ReactSimpleOptionsSelector extends React.Component{
         }
 
 		this.optionClicked = this.optionClicked.bind(this)
+		
 	}
 
 	optionClicked(event){
 
 		let optionID = event.target.id
 		let currentState = {...this.state}
-
 
 		if(this.props.type === "radio"){
 
@@ -81,7 +80,6 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 
 		}
 
-
 		let selected = []
 		this.props.options.forEach((option)=>{
 			currentState[option.id] ? selected.push(option.id): null
@@ -98,7 +96,7 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 				<Button onClick={this.optionClicked} type="button" selectedStyle={this.props.style} value={option.label} id={option.id} selected={this.state[option.id]}/>
 			</OptionContainer>)
 		})
-		
+
 		return (<Container>{options}</Container>);		
 	}
 }
