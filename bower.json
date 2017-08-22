@@ -1,0 +1,29 @@
+{
+  "name": "react-simple-options-selector",
+  "version": "0.0.0",
+  "description": "React Simple Options Selector",
+  "main": "dist/react-simple-options-selector.min.js",
+  "homepage": "https://github.com/ankithkonda/react-simple-options-selector",
+  "authors": [
+    "Ankith Konda"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "react-component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    "package.json",
+    "src",
+    "node_modules",
+    "example",
+    "test"
+  ]
+}
