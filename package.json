@@ -13,8 +13,13 @@
     "url": "https://github.com/ankithkonda/react-simple-options-selector/issues"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta",
     "classnames": "^2.1.2",
-    "styled-components": "^2.1.2"
+    "jquery": "^3.2.1",
+    "polished": "^1.4.1",
+    "prop-types": "^15.5.10",
+    "styled-components": "^2.1.2",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
