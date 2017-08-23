@@ -1,6 +1,6 @@
 {
   "name": "react-simple-options-selector",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React Simple Options Selector",
   "main": "lib/ReactSimpleOptionsSelector.js",
   "author": "Ankith Konda",
