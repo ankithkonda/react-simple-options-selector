@@ -9595,7 +9595,7 @@ var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_ag
 
 var _templateObject = _taggedTemplateLiteral(['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n'], ['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n']),
     _templateObject2 = _taggedTemplateLiteral(['text-align:center'], ['text-align:center']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n'], ['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n'], ['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t'], ['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t']),
     _templateObject5 = _taggedTemplateLiteral(['\n\t\tfloat:', '\n\t'], ['\n\t\tfloat:', '\n\t']),
     _templateObject6 = _taggedTemplateLiteral(['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n'], ['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n']);
@@ -9632,21 +9632,21 @@ var Container = _styledComponents2['default'].div(_templateObject, (0, _polished
 	return props.styles.align === "center" ? (0, _styledComponents.css)(_templateObject2) : '';
 });
 var OptionContainer = _styledComponents2['default'].div(_templateObject3, function (props) {
-	return props.styles.margin.left + 'px';
+	return props.styles && props.styles.margin && props.styles.margin.left && props.styles.margin.left + 'px';
 }, function (props) {
-	return props.styles.margin.right + 'px';
+	return props.styles && props.styles.margin && props.styles.margin.right && props.styles.margin.right + 'px';
 }, function (props) {
-	return props.styles.margin.top + 'px';
+	return props.styles && props.styles.margin && props.styles.margin.top && props.styles.margin.top + 'px';
 }, function (props) {
-	return props.styles.margin.bottom + 'px';
+	return props.styles && props.styles.margin && props.styles.margin.bottom && props.styles.margin.bottom + 'px';
 }, function (props) {
-	return props.styles.padding.left + 'px';
+	return props.styles && props.styles.padding && props.styles.padding.left && props.styles.padding.left + 'px';
 }, function (props) {
-	return props.styles.padding.right + 'px';
+	return props.styles && props.styles.padding && props.styles.padding.right && props.styles.padding.right + 'px';
 }, function (props) {
-	return props.styles.padding.top + 'px';
+	return props.styles && props.styles.padding && props.styles.padding.top && props.styles.padding.top + 'px';
 }, function (props) {
-	return props.styles.padding.bottom + 'px';
+	return props.styles && props.styles.padding && props.styles.padding.bottom && props.styles.padding.bottom + 'px';
 }, function (props) {
 	return props.styles.align === "center" && (0, _styledComponents.css)(_templateObject4);
 }, function (props) {
