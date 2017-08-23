@@ -4,18 +4,18 @@ import React from 'react'
 
 import { clearFix } from 'polished'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import uuid from 'uuid'
 
 const Container = styled.div`
 
 	width: 100%;
 	${clearFix()}
+	${props=> props.styles.align === "center" ? css`text-align:center` : ''};
 
 `
 const OptionContainer = styled.div`
 
-	float: left;
 	margin-left: ${props=> `${props.styles.margin.left}px` };
 	margin-right: ${props=> `${props.styles.margin.right}px` };
 	margin-top: ${props=> `${props.styles.margin.top}px`};
@@ -25,6 +25,21 @@ const OptionContainer = styled.div`
 	padding-right: ${props=> `${props.styles.padding.right}px` };
 	padding-top: ${props=> `${props.styles.padding.top}px`};
 	padding-bottom: ${props=> `${props.styles.padding.bottom}px` }; 
+
+	${props=> props.styles.align === "center" && 
+	css`
+		display: inline-block !important;
+		vertical-align: top !important;
+	` 
+	};
+
+	${props=> ((props.styles.align === "left") || (props.styles.align === "right")) && 
+	css`
+		float:${props.styles.align}
+	` 
+	};
+	
+	
 	
 `
 const Button = styled.input`
@@ -42,6 +57,8 @@ const Button = styled.input`
 	border-radius: 3px;
 	text-align:center;
 	min-width:100px !important;
+
+	
 
 `
 
@@ -106,7 +123,7 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 			</OptionContainer>)
 		})
 
-		return (<Container>{options}</Container>);		
+		return (<Container styles={this.props.styles}>{options}</Container>);		
 	}
 }
 
@@ -139,7 +156,8 @@ ReactSimpleOptionsSelector.PropTypes = {
 			right:PropTypes.number,
 			top:PropTypes.number,
 			bottom:PropTypes.number
-		})
+		}),
+		align:PropTypes.string // center, left, right
 
 	})
 }
@@ -190,7 +208,9 @@ ReactSimpleOptionsSelector.defaultProps = {
 			right:0,
 			top:0,
 			bottom:0
-		}
+		},
+		align:"center" 
+
 	}
 }
 
