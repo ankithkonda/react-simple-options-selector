@@ -9595,10 +9595,11 @@ var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_ag
 
 var _templateObject = _taggedTemplateLiteral(['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n'], ['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n']),
     _templateObject2 = _taggedTemplateLiteral(['text-align:center'], ['text-align:center']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n'], ['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t'], ['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t']),
-    _templateObject5 = _taggedTemplateLiteral(['\n\t\tfloat:', '\n\t'], ['\n\t\tfloat:', '\n\t']),
-    _templateObject6 = _taggedTemplateLiteral(['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n'], ['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n']);
+    _templateObject3 = _taggedTemplateLiteral(['\n\n\t', '\n\n\t', ';\n\n\t', ';\n\t\n\t\n'], ['\n\n\t', '\n\n\t', ';\n\n\t', ';\n\t\n\t\n']),
+    _templateObject4 = _taggedTemplateLiteral(['', ''], ['', '']),
+    _templateObject5 = _taggedTemplateLiteral(['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t'], ['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t']),
+    _templateObject6 = _taggedTemplateLiteral(['\n\t\tfloat:', '\n\t'], ['\n\t\tfloat:', '\n\t']),
+    _templateObject7 = _taggedTemplateLiteral(['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n'], ['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n']);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -9629,35 +9630,30 @@ var _uuid = require('uuid');
 var _uuid2 = _interopRequireDefault(_uuid);
 
 var Container = _styledComponents2['default'].div(_templateObject, (0, _polished.clearFix)(), function (props) {
-	return props.styles.align === "center" ? (0, _styledComponents.css)(_templateObject2) : '';
+	return props.align === "center" ? (0, _styledComponents.css)(_templateObject2) : '';
 });
 var OptionContainer = _styledComponents2['default'].div(_templateObject3, function (props) {
-	return props.styles && props.styles.margin && props.styles.margin.left && props.styles.margin.left + 'px';
+	var margin_padding = '';
+	props.margin_left ? margin_padding += 'margin-left:' + props.margin_left + 'px;' : null;
+	props.margin_right ? margin_padding += 'margin-right:' + props.margin_right + 'px;' : null;
+	props.margin_top ? margin_padding += 'margin-top:' + props.margin_top + 'px;' : null;
+	props.margin_bottom ? margin_padding += 'margin-bottom:' + props.margin_bottom + 'px;' : null;
+	props.padding_left ? margin_padding += 'margin-left:' + props.padding_left + 'px;' : null;
+	props.padding_right ? margin_padding += 'margin-right:' + props.padding_right + 'px;' : null;
+	props.padding_top ? margin_padding += 'margin-top:' + props.padding_top + 'px;' : null;
+	props.padding_bottom ? margin_padding += 'margin-bottom:' + props.padding_bottom + 'px;' : null;
+	return (0, _styledComponents.css)(_templateObject4, margin_padding);
 }, function (props) {
-	return props.styles && props.styles.margin && props.styles.margin.right && props.styles.margin.right + 'px';
+	return props.align === "center" && (0, _styledComponents.css)(_templateObject5);
 }, function (props) {
-	return props.styles && props.styles.margin && props.styles.margin.top && props.styles.margin.top + 'px';
-}, function (props) {
-	return props.styles && props.styles.margin && props.styles.margin.bottom && props.styles.margin.bottom + 'px';
-}, function (props) {
-	return props.styles && props.styles.padding && props.styles.padding.left && props.styles.padding.left + 'px';
-}, function (props) {
-	return props.styles && props.styles.padding && props.styles.padding.right && props.styles.padding.right + 'px';
-}, function (props) {
-	return props.styles && props.styles.padding && props.styles.padding.top && props.styles.padding.top + 'px';
-}, function (props) {
-	return props.styles && props.styles.padding && props.styles.padding.bottom && props.styles.padding.bottom + 'px';
-}, function (props) {
-	return props.styles.align === "center" && (0, _styledComponents.css)(_templateObject4);
-}, function (props) {
-	return (props.styles.align === "left" || props.styles.align === "right") && (0, _styledComponents.css)(_templateObject5, props.styles.align);
+	return (props.align === "left" || props.align === "right") && (0, _styledComponents.css)(_templateObject6, props.align);
 });
-var Button = _styledComponents2['default'].input(_templateObject6, function (props) {
-	return props.selected ? props.styles.selected_background_color : "lightgrey";
+var Button = _styledComponents2['default'].input(_templateObject7, function (props) {
+	return props.selected ? props.selected_background_color : "lightgrey";
 }, function (props) {
-	return props.selected ? props.styles.selected_text_color : "black";
+	return props.selected ? props.selected_text_color : "black";
 }, function (props) {
-	return props.selected ? props.styles.selected_border_color : "black";
+	return props.selected ? props.selected_border_color : "black";
 });
 
 var ReactSimpleOptionsSelector = (function (_React$Component) {
@@ -9716,14 +9712,36 @@ var ReactSimpleOptionsSelector = (function (_React$Component) {
 			var options = this.props.options.map(function (option) {
 				return _react2['default'].createElement(
 					OptionContainer,
-					{ key: option.id, styles: _this.props.styles },
-					_react2['default'].createElement(Button, { onClick: _this.optionClicked, type: 'button', styles: _this.props.styles, value: option.label, id: option.id, selected: _this.state[option.id] })
+					{
+						key: option.id,
+						align: _this.props.align,
+
+						margin_left: _this.props.margin_left,
+						margin_right: _this.props.margin_right,
+						margin_top: _this.props.margin_top,
+						margin_bottom: _this.props.margin_bottom,
+						padding_left: _this.props.padding_left,
+						padding_right: _this.props.padding_right,
+						padding_top: _this.props.padding_top,
+						padding_bottom: _this.props.padding_bottom
+
+					},
+					_react2['default'].createElement(Button, { onClick: _this.optionClicked,
+						type: 'button',
+
+						selected_text_color: _this.props.selected_text_color,
+						selected_border_color: _this.props.selected_border_color,
+						selected_background_color: _this.props.selected_background_color,
+
+						value: option.label,
+						id: option.id,
+						selected: _this.state[option.id] })
 				);
 			});
 
 			return _react2['default'].createElement(
 				Container,
-				{ styles: this.props.styles },
+				{ align: this.props.align },
 				options
 			);
 		}
@@ -9745,25 +9763,23 @@ ReactSimpleOptionsSelector.PropTypes = {
 	})),
 	onSelectionChange: _propTypes2['default'].func,
 	type: _propTypes2['default'].string, // radio or checkbox
-	styles: _propTypes2['default'].shape({
-		selected_text_color: _propTypes2['default'].string,
-		selected_border_color: _propTypes2['default'].string,
-		selected_background_color: _propTypes2['default'].string,
-		margin: _propTypes2['default'].shape({
-			left: _propTypes2['default'].number,
-			right: _propTypes2['default'].number,
-			top: _propTypes2['default'].number,
-			bottom: _propTypes2['default'].number
-		}),
-		padding: _propTypes2['default'].shape({
-			left: _propTypes2['default'].number,
-			right: _propTypes2['default'].number,
-			top: _propTypes2['default'].number,
-			bottom: _propTypes2['default'].number
-		}),
-		align: _propTypes2['default'].string // center, left, right
 
-	})
+	selected_text_color: _propTypes2['default'].string,
+	selected_border_color: _propTypes2['default'].string,
+	selected_background_color: _propTypes2['default'].string,
+
+	margin_left: _propTypes2['default'].number,
+	margin_right: _propTypes2['default'].number,
+	margin_top: _propTypes2['default'].number,
+	margin_bottom: _propTypes2['default'].number,
+
+	padding_left: _propTypes2['default'].number,
+	padding_right: _propTypes2['default'].number,
+	padding_top: _propTypes2['default'].number,
+	padding_bottom: _propTypes2['default'].number,
+
+	align: _propTypes2['default'].string // center, left, right
+
 };
 
 ReactSimpleOptionsSelector.defaultProps = {
@@ -9791,25 +9807,23 @@ ReactSimpleOptionsSelector.defaultProps = {
 		console.log(name, selected);
 	},
 	type: 'radio',
-	styles: {
-		selected_text_color: "#ffffff",
-		selected_border_color: "#04755B",
-		selected_background_color: "#06BA90",
-		margin: {
-			left: 0,
-			right: 10,
-			top: 0,
-			bottom: 10
-		},
-		padding: {
-			left: 0,
-			right: 0,
-			top: 0,
-			bottom: 0
-		},
-		align: "center"
 
-	}
+	selected_text_color: "#ffffff",
+	selected_border_color: "#04755B",
+	selected_background_color: "#06BA90",
+
+	margin_left: 0,
+	margin_right: 10,
+	margin_top: 0,
+	margin_bottom: 10,
+
+	padding_left: 0,
+	padding_right: 0,
+	padding_top: 0,
+	padding_bottom: 0,
+
+	align: "center"
+
 };
 module.exports = exports['default'];
 

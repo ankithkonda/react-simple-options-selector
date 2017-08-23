@@ -17,7 +17,10 @@ var App = React.createClass({
 				null,
 				'Example Options:'
 			),
-			React.createElement(ReactSimpleOptionsSelector, null)
+			React.createElement(ReactSimpleOptionsSelector, {
+
+				align: 'center'
+			})
 		);
 	}
 });
