@@ -16,15 +16,15 @@ const Container = styled.div`
 `
 const OptionContainer = styled.div`
 
-	margin-left: ${props=> `${props.styles.margin.left}px` };
-	margin-right: ${props=> `${props.styles.margin.right}px` };
-	margin-top: ${props=> `${props.styles.margin.top}px`};
-	margin-bottom: ${props=> `${props.styles.margin.bottom}px` }; 
-	
-	padding-left: ${props=> `${props.styles.padding.left}px` };
-	padding-right: ${props=> `${props.styles.padding.right}px` };
-	padding-top: ${props=> `${props.styles.padding.top}px`};
-	padding-bottom: ${props=> `${props.styles.padding.bottom}px` }; 
+	margin-left: ${props=> (props.styles && props.styles.margin && props.styles.margin.left) && `${props.styles.margin.left}px` };
+	margin-right: ${props=> (props.styles && props.styles.margin && props.styles.margin.right) && `${props.styles.margin.right}px` };
+	margin-top: ${props=> (props.styles && props.styles.margin && props.styles.margin.top) && `${props.styles.margin.top}px`};
+	margin-bottom: ${props=> (props.styles && props.styles.margin && props.styles.margin.bottom) && `${props.styles.margin.bottom}px` }; 
+
+	padding-left: ${props=> (props.styles && props.styles.padding && props.styles.padding.left) && `${props.styles.padding.left}px` };
+	padding-right: ${props=> (props.styles && props.styles.padding && props.styles.padding.right) && `${props.styles.padding.right}px` };
+	padding-top: ${props=> (props.styles && props.styles.padding && props.styles.padding.top) && `${props.styles.padding.top}px`};
+	padding-bottom: ${props=> (props.styles && props.styles.padding && props.styles.padding.bottom) && `${props.styles.padding.bottom}px` }; 
 
 	${props=> props.styles.align === "center" && 
 	css`
