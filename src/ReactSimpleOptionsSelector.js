@@ -16,23 +16,32 @@ const Container = styled.div`
 const OptionContainer = styled.div`
 
 	float: left;
-	margin: 0 10px 0 10px;
-	padding: 2px;
-
+	margin-left: ${props=> `${props.styles.margin.left}px` };
+	margin-right: ${props=> `${props.styles.margin.right}px` };
+	margin-top: ${props=> `${props.styles.margin.top}px`};
+	margin-bottom: ${props=> `${props.styles.margin.bottom}px` }; 
+	
+	padding-left: ${props=> `${props.styles.padding.left}px` };
+	padding-right: ${props=> `${props.styles.padding.right}px` };
+	padding-top: ${props=> `${props.styles.padding.top}px`};
+	padding-bottom: ${props=> `${props.styles.padding.bottom}px` }; 
+	
 `
 const Button = styled.input`
 
-	background-color: ${props=> props.selected ? props.selectedStyle.selected_background_color:"lightgrey"};
-	color:  ${props=> props.selected ? props.selectedStyle.selected_text_color:"black"};
+	background-color: ${props=> props.selected ? props.styles.selected_background_color:"lightgrey"};
+	color:  ${props=> props.selected ? props.styles.selected_text_color:"black"};
 	font:15px;
 	font-weight:bold;
 	height:40px;
 	border:none;
-	border: 1px solid ${props=> props.selected ? props.selectedStyle.selected_border_color:"black"};
+	border: 1px solid ${props=> props.selected ? props.styles.selected_border_color:"black"};
 	cursor:pointer;
 	padding: 0.25em 1em;
 	border: 2px solid violetred;
 	border-radius: 3px;
+	text-align:center;
+	min-width:100px !important;
 
 `
 
@@ -92,8 +101,8 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 	render(){
 
 		let options = this.props.options.map((option)=>{
-			return (<OptionContainer key={option.id}> 
-				<Button onClick={this.optionClicked} type="button" selectedStyle={this.props.style} value={option.label} id={option.id} selected={this.state[option.id]}/>
+			return (<OptionContainer key={option.id} styles={this.props.styles}> 
+				<Button onClick={this.optionClicked} type="button" styles={this.props.styles} value={option.label} id={option.id} selected={this.state[option.id]}/>
 			</OptionContainer>)
 		})
 
@@ -115,10 +124,23 @@ ReactSimpleOptionsSelector.PropTypes = {
 	})),
 	onSelectionChange: PropTypes.func,
 	type: PropTypes.string, // radio or checkbox
-	style: PropTypes.shape({
+	styles: PropTypes.shape({
 		selected_text_color:PropTypes.string,
 		selected_border_color:PropTypes.string,
-		selected_background_color:PropTypes.string
+		selected_background_color:PropTypes.string,
+		margin:PropTypes.shape({
+			left:PropTypes.number,
+			right:PropTypes.number,
+			top:PropTypes.number,
+			bottom:PropTypes.number
+		}),
+		padding:PropTypes.shape({
+			left:PropTypes.number,
+			right:PropTypes.number,
+			top:PropTypes.number,
+			bottom:PropTypes.number
+		})
+
 	})
 }
 
@@ -143,7 +165,7 @@ ReactSimpleOptionsSelector.defaultProps = {
 			{
 				id: uuid.v4(),
 				value: 'option_c',
-				label: 'Option C',
+				label: ' C',
 				selected: false,
 				count: 3
 			}
@@ -153,10 +175,22 @@ ReactSimpleOptionsSelector.defaultProps = {
 		console.log(name, selected);
 	},
 	type: 'radio',
-	style: {
+	styles: {
 		selected_text_color:"#ffffff",
 		selected_border_color:"#04755B",
-		selected_background_color:"#06BA90"
+		selected_background_color:"#06BA90",
+		margin:{
+			left:0,
+			right:10,
+			top:0,
+			bottom:10
+		},
+		padding:{
+			left:0,
+			right:0,
+			top:0,
+			bottom:0
+		}
 	}
 }
 
