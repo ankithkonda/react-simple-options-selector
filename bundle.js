@@ -9593,9 +9593,12 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-var _templateObject = _taggedTemplateLiteral(['\n\n\twidth: 100%;\n\t', '\n\n'], ['\n\n\twidth: 100%;\n\t', '\n\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\n\tfloat: left;\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\t\n'], ['\n\n\tfloat: left;\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\t\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n'], ['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n'], ['\n\n\twidth: 100%;\n\t', '\n\t', ';\n\n']),
+    _templateObject2 = _taggedTemplateLiteral(['text-align:center'], ['text-align:center']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n'], ['\n\n\tmargin-left: ', ';\n\tmargin-right: ', ';\n\tmargin-top: ', ';\n\tmargin-bottom: ', '; \n\t\n\tpadding-left: ', ';\n\tpadding-right: ', ';\n\tpadding-top: ', ';\n\tpadding-bottom: ', '; \n\n\t', ';\n\n\t', ';\n\t\n\t\n\t\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t'], ['\n\t\tdisplay: inline-block !important;\n\t\tvertical-align: top !important;\n\t']),
+    _templateObject5 = _taggedTemplateLiteral(['\n\t\tfloat:', '\n\t'], ['\n\t\tfloat:', '\n\t']),
+    _templateObject6 = _taggedTemplateLiteral(['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n'], ['\n\n\tbackground-color: ', ';\n\tcolor:  ', ';\n\tfont:15px;\n\tfont-weight:bold;\n\theight:40px;\n\tborder:none;\n\tborder: 1px solid ', ';\n\tcursor:pointer;\n\tpadding: 0.25em 1em;\n\tborder: 2px solid violetred;\n\tborder-radius: 3px;\n\ttext-align:center;\n\tmin-width:100px !important;\n\n\t\n\n']);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -9625,8 +9628,10 @@ var _uuid = require('uuid');
 
 var _uuid2 = _interopRequireDefault(_uuid);
 
-var Container = _styledComponents2['default'].div(_templateObject, (0, _polished.clearFix)());
-var OptionContainer = _styledComponents2['default'].div(_templateObject2, function (props) {
+var Container = _styledComponents2['default'].div(_templateObject, (0, _polished.clearFix)(), function (props) {
+	return props.styles.align === "center" ? (0, _styledComponents.css)(_templateObject2) : '';
+});
+var OptionContainer = _styledComponents2['default'].div(_templateObject3, function (props) {
 	return props.styles.margin.left + 'px';
 }, function (props) {
 	return props.styles.margin.right + 'px';
@@ -9642,8 +9647,12 @@ var OptionContainer = _styledComponents2['default'].div(_templateObject2, functi
 	return props.styles.padding.top + 'px';
 }, function (props) {
 	return props.styles.padding.bottom + 'px';
+}, function (props) {
+	return props.styles.align === "center" && (0, _styledComponents.css)(_templateObject4);
+}, function (props) {
+	return (props.styles.align === "left" || props.styles.align === "right") && (0, _styledComponents.css)(_templateObject5, props.styles.align);
 });
-var Button = _styledComponents2['default'].input(_templateObject3, function (props) {
+var Button = _styledComponents2['default'].input(_templateObject6, function (props) {
 	return props.selected ? props.styles.selected_background_color : "lightgrey";
 }, function (props) {
 	return props.selected ? props.styles.selected_text_color : "black";
@@ -9714,7 +9723,7 @@ var ReactSimpleOptionsSelector = (function (_React$Component) {
 
 			return _react2['default'].createElement(
 				Container,
-				null,
+				{ styles: this.props.styles },
 				options
 			);
 		}
@@ -9751,7 +9760,8 @@ ReactSimpleOptionsSelector.PropTypes = {
 			right: _propTypes2['default'].number,
 			top: _propTypes2['default'].number,
 			bottom: _propTypes2['default'].number
-		})
+		}),
+		align: _propTypes2['default'].string // center, left, right
 
 	})
 };
@@ -9796,7 +9806,9 @@ ReactSimpleOptionsSelector.defaultProps = {
 			right: 0,
 			top: 0,
 			bottom: 0
-		}
+		},
+		align: "center"
+
 	}
 };
 module.exports = exports['default'];
