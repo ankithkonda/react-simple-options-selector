@@ -11,54 +11,54 @@ const Container = styled.div`
 
 	width: 100%;
 	${clearFix()}
-	${props=> props.styles.align === "center" ? css`text-align:center` : ''};
+	${props=> props.align === "center" ? css`text-align:center` : ''};
 
 `
 const OptionContainer = styled.div`
 
-	margin-left: ${props=> (props.styles && props.styles.margin && props.styles.margin.left) && `${props.styles.margin.left}px` };
-	margin-right: ${props=> (props.styles && props.styles.margin && props.styles.margin.right) && `${props.styles.margin.right}px` };
-	margin-top: ${props=> (props.styles && props.styles.margin && props.styles.margin.top) && `${props.styles.margin.top}px`};
-	margin-bottom: ${props=> (props.styles && props.styles.margin && props.styles.margin.bottom) && `${props.styles.margin.bottom}px` }; 
+	${(props)=>{
+		let margin_padding = ``
+		props.margin_left ? margin_padding += `margin-left:${props.margin_left}px;`:null
+		props.margin_right ? margin_padding += `margin-right:${props.margin_right}px;`:null
+		props.margin_top ? margin_padding += `margin-top:${props.margin_top}px;`:null
+		props.margin_bottom ? margin_padding += `margin-bottom:${props.margin_bottom}px;`:null
+		props.padding_left ? margin_padding += `margin-left:${props.padding_left}px;`:null
+		props.padding_right ? margin_padding += `margin-right:${props.padding_right}px;`:null
+		props.padding_top ? margin_padding += `margin-top:${props.padding_top}px;`:null
+		props.padding_bottom ? margin_padding += `margin-bottom:${props.padding_bottom}px;`:null
+		return css`${margin_padding}`
+	}}
 
-	padding-left: ${props=> (props.styles && props.styles.padding && props.styles.padding.left) && `${props.styles.padding.left}px` };
-	padding-right: ${props=> (props.styles && props.styles.padding && props.styles.padding.right) && `${props.styles.padding.right}px` };
-	padding-top: ${props=> (props.styles && props.styles.padding && props.styles.padding.top) && `${props.styles.padding.top}px`};
-	padding-bottom: ${props=> (props.styles && props.styles.padding && props.styles.padding.bottom) && `${props.styles.padding.bottom}px` }; 
-
-	${props=> props.styles.align === "center" && 
+	${props=> props.align === "center" && 
 	css`
 		display: inline-block !important;
 		vertical-align: top !important;
 	` 
 	};
 
-	${props=> ((props.styles.align === "left") || (props.styles.align === "right")) && 
+	${props=> ((props.align === "left") || (props.align === "right")) && 
 	css`
-		float:${props.styles.align}
+		float:${props.align}
 	` 
 	};
-	
 	
 	
 `
 const Button = styled.input`
 
-	background-color: ${props=> props.selected ? props.styles.selected_background_color:"lightgrey"};
-	color:  ${props=> props.selected ? props.styles.selected_text_color:"black"};
+	background-color: ${props=> props.selected ? props.selected_background_color:"lightgrey"};
+	color:  ${props=> props.selected ? props.selected_text_color:"black"};
 	font:15px;
 	font-weight:bold;
 	height:40px;
 	border:none;
-	border: 1px solid ${props=> props.selected ? props.styles.selected_border_color:"black"};
+	border: 1px solid ${props=> props.selected ? props.selected_border_color:"black"};
 	cursor:pointer;
 	padding: 0.25em 1em;
 	border: 2px solid violetred;
 	border-radius: 3px;
 	text-align:center;
 	min-width:100px !important;
-
-	
 
 `
 
@@ -118,12 +118,34 @@ export default class ReactSimpleOptionsSelector extends React.Component{
 	render(){
 
 		let options = this.props.options.map((option)=>{
-			return (<OptionContainer key={option.id} styles={this.props.styles}> 
-				<Button onClick={this.optionClicked} type="button" styles={this.props.styles} value={option.label} id={option.id} selected={this.state[option.id]}/>
+			return (<OptionContainer 
+				key={option.id} 
+				align={this.props.align}
+				
+				margin_left={this.props.margin_left}
+				margin_right={this.props.margin_right}
+				margin_top={this.props.margin_top}
+				margin_bottom={this.props.margin_bottom}
+				padding_left={this.props.padding_left}
+				padding_right={this.props.padding_right}
+				padding_top={this.props.padding_top}
+				padding_bottom={this.props.padding_bottom}
+				
+				> 
+					<Button onClick={this.optionClicked} 
+						type="button" 
+						
+						selected_text_color={this.props.selected_text_color}
+						selected_border_color={this.props.selected_border_color}
+						selected_background_color={this.props.selected_background_color}
+						
+						value={option.label} 
+						id={option.id} 
+						selected={this.state[option.id]}/>
 			</OptionContainer>)
 		})
 
-		return (<Container styles={this.props.styles}>{options}</Container>);		
+		return (<Container align={this.props.align}>{options}</Container>);		
 	}
 }
 
@@ -141,25 +163,23 @@ ReactSimpleOptionsSelector.PropTypes = {
 	})),
 	onSelectionChange: PropTypes.func,
 	type: PropTypes.string, // radio or checkbox
-	styles: PropTypes.shape({
-		selected_text_color:PropTypes.string,
-		selected_border_color:PropTypes.string,
-		selected_background_color:PropTypes.string,
-		margin:PropTypes.shape({
-			left:PropTypes.number,
-			right:PropTypes.number,
-			top:PropTypes.number,
-			bottom:PropTypes.number
-		}),
-		padding:PropTypes.shape({
-			left:PropTypes.number,
-			right:PropTypes.number,
-			top:PropTypes.number,
-			bottom:PropTypes.number
-		}),
-		align:PropTypes.string // center, left, right
+	
+	selected_text_color:PropTypes.string,
+	selected_border_color:PropTypes.string,
+	selected_background_color:PropTypes.string,
 
-	})
+	margin_left:PropTypes.number,
+	margin_right:PropTypes.number,
+	margin_top:PropTypes.number,
+	margin_bottom:PropTypes.number,
+
+	padding_left:PropTypes.number,
+	padding_right:PropTypes.number,
+	padding_top:PropTypes.number,
+	padding_bottom:PropTypes.number,
+
+	align:PropTypes.string // center, left, right
+
 }
 
 ReactSimpleOptionsSelector.defaultProps = {
@@ -193,24 +213,23 @@ ReactSimpleOptionsSelector.defaultProps = {
 		console.log(name, selected);
 	},
 	type: 'radio',
-	styles: {
-		selected_text_color:"#ffffff",
-		selected_border_color:"#04755B",
-		selected_background_color:"#06BA90",
-		margin:{
-			left:0,
-			right:10,
-			top:0,
-			bottom:10
-		},
-		padding:{
-			left:0,
-			right:0,
-			top:0,
-			bottom:0
-		},
-		align:"center" 
+	
+	selected_text_color:"#ffffff",
+	selected_border_color:"#04755B",
+	selected_background_color:"#06BA90",
+	
+	margin_left:0,
+	margin_right:10,
+	margin_top:0,
+	margin_bottom:10,
 
-	}
+	padding_left:0,
+	padding_right:0,
+	padding_top:0,
+	padding_bottom:0,
+	
+	align:"center" 
+
 }
+
 

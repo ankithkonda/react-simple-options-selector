@@ -7,7 +7,10 @@ var App = React.createClass({
 		return (
 			<div>
 				<h2>Example Options:</h2>
-				<ReactSimpleOptionsSelector />
+				<ReactSimpleOptionsSelector 
+
+					align="center"					
+				/>
 
 			</div>
 		);
