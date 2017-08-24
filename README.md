@@ -61,7 +61,7 @@ Default:
 #### name
 
 ```js
-Default : 'react-simple-options-selector-example'
+Default : 'react_simple_options_selector_example'
 ```
 
 #### onSelectionChange

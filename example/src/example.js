@@ -6,7 +6,17 @@ import styled from "styled-components"
 const CodeBlock = styled.pre`
 	background-color:lightgrey;
 	padding:15px;
+	min-height:20px;
+	width:100%;
+	white-space: pre-wrap;
+
 `
+
+const ExampleTitle = styled.h2`
+	font-weight:bold;
+	margin-top:50px;
+`
+
 const CustomOptions = [
 	"Some",
 	"Other",
@@ -14,14 +24,38 @@ const CustomOptions = [
 	"To",
 	"Select"
 ]
-var App = React.createClass({
+
+
+class App extends React.Component {
+	constructor(){
+		super()
+		this.state={
+			react_simple_options_selector_example:null,
+			custom_options_example:null,
+			callback_function_example:null,
+			four:null,
+			five:null
+		}
+	}
+	
 	render () {
 		return (
 			<div>
-				<h2>1. Hello World</h2>
+				<ExampleTitle>1. Hello World</ExampleTitle>
 				<CodeBlock>{`<ReactSimpleOptionsSelector />`}</CodeBlock>
-				<ReactSimpleOptionsSelector />
-				<h2>2. Custom Options</h2>
+				<ReactSimpleOptionsSelector
+					onSelectionChange={(name, selected)=>{
+						this.setState({
+							[name]:selected
+						})
+					}}
+				/>
+<h3>Output:</h3>
+<CodeBlock>
+	{this.state.react_simple_options_selector_example? '> '+JSON.stringify(this.state.react_simple_options_selector_example):'> '}
+</CodeBlock>
+
+				<ExampleTitle>2. Custom Options</ExampleTitle>
 <CodeBlock>{`
 const CustomOptions = [
 	"Some",
@@ -32,7 +66,7 @@ const CustomOptions = [
 ]
 
 <ReactSimpleOptionsSelector 
-	name="custom-options-example"
+	name="custom_options_example"
 	options={
 		CustomOptions.map((value, index)=>{
 			return {
@@ -49,6 +83,14 @@ const CustomOptions = [
 
 
 <ReactSimpleOptionsSelector 
+
+name="custom_options_example"
+
+onSelectionChange={(name, selected)=>{
+						this.setState({
+							[name]:selected
+						})
+					}}
 	
 options={
 	CustomOptions.map((value, index)=>{
@@ -62,8 +104,92 @@ options={
 }
 
 />
+<h3>Output:</h3>
+<CodeBlock>
+	{this.state.custom_options_example? '> '+JSON.stringify(this.state.custom_options_example):'> '}
+</CodeBlock>
 
-				<h2>3. Align</h2>
+
+<ExampleTitle>3. Custom Options (Checkbox Type)</ExampleTitle>
+<CodeBlock>{`
+const CustomOptions = [
+	"Some",
+	"Other",
+	"Options",
+	"To",
+	"Select"
+]
+
+<ReactSimpleOptionsSelector 
+	name="custom_options_checkbox_example"
+	type="checkbox"
+	options={
+		CustomOptions.map((value, index)=>{
+			return {
+				id:value,
+				label:value,
+				selected:(index === 2) ? true:false
+
+			}
+		})
+	}
+
+/>`
+}</CodeBlock>
+
+
+<ReactSimpleOptionsSelector 
+
+name="custom_options_checkbox_example"
+type="checkbox"
+onSelectionChange={(name, selected)=>{
+						this.setState({
+							[name]:selected
+						})
+					}}
+	
+options={
+	CustomOptions.map((value, index)=>{
+		return {
+			id:value,
+			label:value,
+			selected:(index === 2) ? true:false
+
+		}
+	})
+}
+
+/>
+<h3>Output:</h3>
+<CodeBlock>
+	{this.state.custom_options_checkbox_example? '> '+JSON.stringify(this.state.custom_options_checkbox_example):'> '}
+</CodeBlock>
+
+
+<ExampleTitle>4. Callback Function</ExampleTitle>
+				<CodeBlock>{`<ReactSimpleOptionsSelector
+	name='callback_function_example'				
+	onSelectionChange={(name, selected)=>{
+		console.log(`+"`Yay now I can use the values ${selected} from ${name}`"+`)
+	}}
+/>`}</CodeBlock>
+				<ReactSimpleOptionsSelector
+					name='callback_function_example'
+					onSelectionChange={(name, selected)=>{
+						this.setState({
+							[name]:selected
+						})
+					}}
+				/>
+<h3>Output:</h3>
+<CodeBlock>
+	{this.state.callback_function_example? `> Yay now I can use the values ${'> '+JSON.stringify(this.state.callback_function_example)} from callback_function_example`:'> '}
+</CodeBlock>
+
+
+
+
+				<ExampleTitle>5. Align</ExampleTitle>
 <CodeBlock>{`
 <ReactSimpleOptionsSelector 
 	name="align-left-example"
@@ -86,7 +212,7 @@ options={
 				/>
 
 
-				<h2>4. Color Change</h2>
+				<ExampleTitle>6. Color Change</ExampleTitle>
 <CodeBlock>{`<ReactSimpleOptionsSelector 
 
 	selected_text_color="#ffffff"
@@ -101,7 +227,7 @@ options={
 				
 				/>
 
-				<h2>5. Margin &amp; Padding</h2>
+				<ExampleTitle>7. Margin &amp; Padding</ExampleTitle>
 <CodeBlock>{`<ReactSimpleOptionsSelector 
 
 	margin_left={50}
@@ -134,6 +260,6 @@ options={
 			
 		);
 	}
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));

@@ -183,7 +183,7 @@ ReactSimpleOptionsSelector.PropTypes = {
 }
 
 ReactSimpleOptionsSelector.defaultProps = {
-	name: 'react-simple-options-selector-example',
+	name: 'react_simple_options_selector_example',
 	options: [
 
 			{
