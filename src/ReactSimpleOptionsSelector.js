@@ -159,7 +159,7 @@ ReactSimpleOptionsSelector.PropTypes = {
 		value: PropTypes.string, // currently unused
 		label: PropTypes.string.isRequired,
 		selected: PropTypes.bool,
-		count: PropTypes.number
+		count: PropTypes.number // currently unused (in the future displays a badge of count on the button)
 	})),
 	onSelectionChange: PropTypes.func,
 	type: PropTypes.string, // radio or checkbox
