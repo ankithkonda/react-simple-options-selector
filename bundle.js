@@ -9759,7 +9759,7 @@ ReactSimpleOptionsSelector.PropTypes = {
 		value: _propTypes2['default'].string, // currently unused
 		label: _propTypes2['default'].string.isRequired,
 		selected: _propTypes2['default'].bool,
-		count: _propTypes2['default'].number
+		count: _propTypes2['default'].number // currently unused (in the future displays a badge of count on the button)
 	})),
 	onSelectionChange: _propTypes2['default'].func,
 	type: _propTypes2['default'].string, // radio or checkbox
@@ -9783,7 +9783,7 @@ ReactSimpleOptionsSelector.PropTypes = {
 };
 
 ReactSimpleOptionsSelector.defaultProps = {
-	name: 'react-simple-options-selector-example',
+	name: 'react_simple_options_selector_example',
 	options: [{
 		id: _uuid2['default'].v4(),
 		value: 'option_a',
@@ -9799,7 +9799,7 @@ ReactSimpleOptionsSelector.defaultProps = {
 	}, {
 		id: _uuid2['default'].v4(),
 		value: 'option_c',
-		label: ' C',
+		label: 'Option C',
 		selected: false,
 		count: 3
 	}],
