@@ -203,7 +203,7 @@ ReactSimpleOptionsSelector.defaultProps = {
 			{
 				id: uuid.v4(),
 				value: 'option_c',
-				label: ' C',
+				label: 'Option C',
 				selected: false,
 				count: 3
 			}
