@@ -28,7 +28,7 @@ import ReactSimpleOptionsSelector from "react-simple-options-selector"
 ## Props
 
 
-From [`../src/ReactSimpleOptionsSelector.js`](../src/ReactSimpleOptionsSelector.js)
+From [`../src/ReactSimpleOptionsSelector.js`](https://github.com/ankithkonda/react-simple-options-selector/blob/master/src/ReactSimpleOptionsSelector.js)
 
 
 
