@@ -16,7 +16,7 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.1.2",
     "jquery": "^3.4.0",
-    "polished": "^1.4.1",
+    "polished": "^3.0.0",
     "prop-types": "^15.5.10",
     "styled-components": "^4.0.0",
     "uuid": "^3.1.0"
