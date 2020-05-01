@@ -15,11 +15,12 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.1.2",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "polished": "^1.4.1",
     "prop-types": "^15.5.10",
     "styled-components": "^4.0.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-eslint": "4.1.8",
@@ -45,10 +46,13 @@
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
     "test": "echo \"no tests yet\" && exit 0",
-    "watch": "gulp watch:lib"
+    "watch": "gulp watch:lib",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "react",
     "react-component"
-  ]
+  ],
+  "snyk": true
 }
