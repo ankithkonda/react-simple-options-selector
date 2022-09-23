@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
-    "eslint": "8.23.1",
+    "eslint": "8.24.0",
     "eslint-plugin-react": "7.31.8",
     "gulp": "4.0.2",
     "gulp-react-docs": "1.0.1",
